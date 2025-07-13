@@ -1,0 +1,12 @@
+[package]
+name = "particles-rust"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+embedded-graphics = "0.8"
+embedded-graphics-simulator = "0.6"
+
+[[bin]]
+name = "particles"
+path = "particles.rs"
