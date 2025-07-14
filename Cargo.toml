@@ -1,12 +1,35 @@
 [package]
 name = "particles-rust"
-version = "0.0.1"
+version = "0.2.0"
 edition = "2021"
 
-[dependencies]
-embedded-graphics = "0.8"
-embedded-graphics-simulator = "0.6"
+[lib]
+name = "particles_rust"
+path = "particles.rs"
 
 [[bin]]
 name = "particles"
-path = "particles.rs"
+path = "main.rs"
+
+[dependencies]
+heapless = "0.8"
+libm = "0.2"
+
+[dependencies.embedded-graphics]
+version = "0.8"
+optional = true
+
+[dependencies.embedded-graphics-simulator]
+version = "0.6"
+optional = true
+
+[features]
+default = ["simulator"]
+simulator = ["embedded-graphics", "embedded-graphics-simulator"]
+
+[profile.release]
+opt-level = "z"     # Optimize for size
+lto = true          # Link-time optimization
+codegen-units = 1   # Single codegen unit for better optimization
+panic = "abort"     # No unwinding for smaller binary
+strip = true        # Strip symbols for smaller binary

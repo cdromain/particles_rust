@@ -4,9 +4,9 @@ A Rust port of the particles generative algorithm using embedded-graphics-simula
 
 ## Quick Start
 
-1. Copy `particles.rs` and `Cargo.toml` to the directory
+1. Copy `particles.rs`, `main.rs` and `Cargo.toml` to the directory
 
-2. Run the simulator:
+2. Run the compilation & simulation :
    ```bash
    cargo run --release
    ```
